@@ -1,0 +1,201 @@
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	/*background: linear-gradient(135deg, #74b9ff, #0984e3);*/
+	background-image: url("bg.jpg");
+	background-size: cover;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.container {
+	background: white;
+	padding: 40px;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+	max-width: 450px;
+}
+
+h1 {
+	color: #2d3436;
+}
+p {
+	color: #636e72;
+}
+#fortuneBtn {
+	font-size: 70px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	transition: transform .3s;
+}
+
+#fortuneBtn:hover {
+	transform: scale(1.15) rotate(20deg);
+}
+#fortuneText {
+	margin-top: 25px;
+	font-size: 20px;
+	color: #2d3436;
+	font-weight: bold;
+	min-height: 70px;
+}
+
+#fortuneBtn.opening {
+	transform: scaler(1.2) rotate(100deg);
+}
+
+#fortuneBtn:disabled {
+	cursor: default;
+	opacity: 0.6;
+}
+
+#fortuneBtn {
+	transition: transform 0.3s ease;
+}
+
+#fortuneBtn.opening {
+	animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-10deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(10deg);
+	}
+}
+#fortuneBtn {
+	position: relative;
+	width: 140px;
+	height: 100px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+.cookie-left,
+.cookie-right {
+	position: absolute;
+	
+	width: 70px;
+	height: 109px;
+	/*background: #f5d085;*/
+	top: 15px;
+	
+	z-index:1;
+}
+
+.cookie-left {
+	left: 0px;
+	background-image: url("1.png");
+	transform: rotate(0deg);
+	display: flex;
+}
+
+.cookie-right {
+	right: 0px;
+	background-image: url("2.png");
+	display: flex;
+	transform: rotate(0deg)
+	
+}
+
+#fortuneBtn.opening .cookie-left {
+	animation: openLeft 1s forwards;
+}
+#fortuneBtn.opening .cookie-right {
+	animation: openRight 1s forwards;
+}
+@keyframes openLeft {
+	from {
+		tranform: rotate(0deg);
+	}
+	to {
+		transform: translateY(45px) rotate(-80deg);
+	}
+}
+@keyframes openRight {
+	from {
+		tranform: rotate(0deg);
+	}
+	to {
+		transform: translateX(45px) rotate(80deg);
+	}
+}
+#fortuneText {
+	position: relative;
+	margin-top: 10px;
+	min-height: 100px;
+}
+.fortune-paper {
+	position: absolute;
+	width: 180px;
+	min-height: 65px;
+	background: #fffdf2;
+	border: 1px solid #ddd6b8;
+	box-sizing: border-box;
+	padding: 10px 14px;
+	left: 50%;
+	top: 65%;
+	opacity: 0;
+	transform: translate(-50%, 20%);
+	z-index: 2;
+	transition: all 0.8s ease;
+	
+	font-family: Georgia, serif;
+	font-size: 14px;
+	line-height: 1.5;
+	text-align: center;
+	color: #4a3b2a;
+	border-radius: 4px;
+	
+}
+.fortune-paper.show {
+	opacity: 1 !important;
+	visibility: visible !important;
+	z-index:3;
+	transform: translate(-50%, -100%);
+	animation: revealFortune 10s forwards;
+}
+@keyframes revealFortune {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -70%, scale(0.9);
+	}
+	to {
+		opacity: 0;
+		transform: translate(-50%, -100%, scale(1);
+	}
+}
+#fortuneBtn.opening .fortune-paper {
+	transform: translate(-50%, 5%);
+	opacity: 1;
+	
+}
+#username {
+	padding: 10px;
+	font-size: 16px;
+	margin: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+#startBtn {
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
